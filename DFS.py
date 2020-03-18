@@ -27,6 +27,18 @@ class Graph():
         for next_node in neighbors:
             if not self.visited[next_node]:
                 self.dfs(next_node)
+     
+    def dfs_with_stack(self, node):
+        self.visited = {x: False for x in self.visited}
+        stk = [node]
+        while len(stk) > 0:
+            node = stk.pop()
+            self.visited[node] = True
+            for neighbor in self.g[node]:
+                if not self.visited[neighbor] and neighbor not in stk:
+                    stk.append(neighbor)
+            print(node)
+     
 
 
 g = Graph()
@@ -50,6 +62,9 @@ g.addEdge('F', 'E')
 print("DFS :")
 g.dfs('A')
 
+print("\n DFS (stack):")
+g.dfs_with_stack('A')
+
 # input:
 # Graph Structure
 #     A
@@ -67,3 +82,6 @@ g.dfs('A')
 # output:
 # DFS :
 # A B D E C F
+
+# DFS (stack):
+# A C E F D B
