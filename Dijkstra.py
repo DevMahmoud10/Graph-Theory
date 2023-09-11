@@ -9,7 +9,7 @@ def dijkstra(g):
             continue
         visited[s_node]=s_weight
         for d_node,d_weight in g[s_node]:
-            if d_node not in min_heap:
+            if d_node not in visited:
                 heapq.heappush(min_heap, (s_weight+d_weight,d_node))
     return visited
         
