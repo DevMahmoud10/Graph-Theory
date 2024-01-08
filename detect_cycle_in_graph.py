@@ -7,8 +7,7 @@ def has_cycle(graph):
                 return True
             if n in visited:
                 continue
-            is_in_cycle=is_node_in_cycle(graph, n, visited, currently_in_stack)
-            if is_in_cycle:
+            if is_node_in_cycle(graph, n, visited, currently_in_stack):
                 return True
         currently_in_stack.remove(node)
         return False
@@ -18,8 +17,7 @@ def has_cycle(graph):
     for node in graph:
         if node in visited:
             continue
-        contains_cycle=is_node_in_cycle(graph, node, visited, currently_in_stack)
-        if contains_cycle:
+        if is_node_in_cycle(graph, node, visited, currently_in_stack):
             return True
     return False
             
