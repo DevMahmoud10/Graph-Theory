@@ -33,6 +33,7 @@ def has_path_dfs_recursive(graph, source, destination):
     def dfs(graph, source, destination, visited):
         if source==destination:
             return True
+        visited.add(source)
         for n in graph[source]:
             if n not in visited:
                 dfs(graph, n, destination, visited)
